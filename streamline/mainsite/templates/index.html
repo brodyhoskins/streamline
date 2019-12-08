@@ -2,5 +2,19 @@
 {% block title %}Welcome{% endblock title %}
 
 {% block content %}
-  <p>Hello there!</p>
+  <div class="jumbotron jumbotron-welcome bg-dark">
+    <div class="w-50 p-4 mx-auto bg-white text-center rounded">
+      <p class="h2">Grand Opening Sale</p>
+      <p>Take 15% off sitewide with code GRAND today only!</p>
+      <a href="/products"><button class="btn btn-sm btn-primary text-uppercase">Shop Now</button></a>
+    </div>
+  </div>
+  <main>
+    <div class="container-fluid">
+      <div class="alert alert-warning text-center">
+        <h1 class="text-uppercase"><i class="far fa-dizzy"></i> Our bad</h1>
+        <p>We don't yet have any content to show here yet.</p>
+      </div>
+    </div>
+  </main>
 {% endblock content %}

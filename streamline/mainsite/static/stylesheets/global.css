@@ -1,0 +1,40 @@
+body {
+  color: #4e4e4e;
+  background-color: #f5f5f5;
+}
+
+main {
+  padding-bottom: 16px;
+  padding-top: 16px;
+  background-color: white;
+}
+
+nav * {
+  text-transform: lowercase;
+}
+
+.bg-light, .navbar-light {
+  background-color: #e3faf0 !important;
+}
+
+.jumbotron {
+  margin-bottom: 0;
+}
+
+.jumbotron-welcome {
+  color: #3a3a3a;
+  background-image: url('/static/images/heather-ford-FbrDS0jY_Hw-unsplash.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-bottom: 96px;
+  padding-top: 96px;
+}
+
+.navbar-brand, .brand {
+  font-weight: 500;
+  text-transform: lowercase;
+}
+
+.navbar a, .navbar a:active, .navbar a:hover, .navbar a:visited {
+  color: #4e4e4e !important;
+}
