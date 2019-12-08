@@ -1,0 +1,22 @@
+{% load static %}
+{% load bootstrap4 %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}{{ page_title }}{% endblock title %} — Streamline</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% bootstrap_css %}
+  <link href="{% static 'global.css' %}" rel="stylesheet" type="text/css">
+  {% bootstrap_javascript jquery='full' %}
+</head>
+
+<body>
+  {% bootstrap_messages %}
+  <div class="container-fluid">
+    {% block content %}{% endblock content %}
+  </div>
+</body>
+
+</html>
