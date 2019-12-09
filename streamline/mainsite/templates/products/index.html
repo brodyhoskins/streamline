@@ -1,10 +1,13 @@
 {% extends 'layout.html' %}
-{% block title %}Welcome{% endblock title %}
+{% block title %}Products{% endblock title %}
 
 {% block content %}
-  {% include '_jumbotron_welcome.html' %}
   <main>
     <div class="container-fluid">
+      <div class="page-header">
+        <h1>Products</h1>
+        <p class="lead">We think you’ll love them</p>
+      </div>
       {% include '_error_no_content.html' %}
     </div>
   </main>
