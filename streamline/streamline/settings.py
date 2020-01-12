@@ -77,12 +77,12 @@ WSGI_APPLICATION = 'streamline.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'streamline',
         'USER': 'streamline',
         'PASSWORD': 'seSsc2LAXNzmmszm',
         'HOST': 'localhost',
-        'PORT': '3306',
+        'PORT': '',
     }
 }
 
