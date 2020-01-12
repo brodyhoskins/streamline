@@ -1,5 +1,5 @@
 {% extends 'layout.html' %}
-{% block title %}Sign in{% endblock title %}
+{% block title %}Sign up{% endblock title %}
 
 {% load bootstrap4 %}
 
@@ -7,14 +7,15 @@
   <main>
     <div class="container-fluid">
       <div class="page-header">
-        <h1>Sign in</h1>
-        <p class="lead">We’re so glad you’re back</p>
+        <h1>Sign up</h1>
+        <p class="lead">Welcome to our store!</p>
       </div>
-      <form action="{% url 'login' %}" method="post" class="form-horizontal col-md-6">
+      <form method="post" class="form-horizontal col-md-6">
         {% csrf_token %}
+        {% bootstrap_form_errors form type='non_fields' %}
         {% bootstrap_form form layout='horizontal' %}
         {% buttons %}
-          <button type="submit" class="btn btn-primary mr-2">Login</button>
+          <button type="submit" class="btn btn-primary">Sign up</button>
         {% endbuttons %}
       </form>
     </div>
