@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% block title %}Dashboard{% endblock title %}
+
+{% block content %}
+  <main>
+    <div class="container-fluid">
+      <div class="page-header">
+        <h1>Dashboard</h1>
+        <p class="lead">Just for <em>{{ vendor.name }}</em></p>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-md-3">
+          <h2 class="h4"><i class="fas fa-credit-card"></i> Orders</h2>
+          <ul class="list-unstyled list-inline">
+            <li class="list-inline-item"><a href="/vendor/orders/">0 since Jan 1</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <h2 class="h4"><i class="fas fa-mug-hot"></i> Products</h2>
+          <ul class="list-unstyled list-inline">
+            <li class="list-inline-item"><a href="/vendor/orders/">0 sold out</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <h2 class="h4"><i class="fas fa-cubes"></i> Fulfillment</h2>
+          <ul class="list-unstyled list-inline">
+            <li class="list-inline-item"><a href="/vendor/fulfillment/pending">0 pending fulfillment</a></li>
+            <li class="list-inline-item"><a href="/vendor/fulfillment/returns">0 returns</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <h2 class="h4"><i class="fas fa-wallet"></i> Revenue</h2>
+          <ul class="list-unstyled list-inline">
+            <li class="list-inline-item"><a href="/vendor/revenue">$0 profit this month</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock content %}

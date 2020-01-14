@@ -9,6 +9,10 @@ main {
   background-color: white;
 }
 
+a, a:link, a:active, a:hover, a:visited {
+  text-decoration: none !important;
+}
+
 nav * {
   text-transform: lowercase;
 }
@@ -53,6 +57,6 @@ nav * {
   font-weight: 400;
 }
 
-p.lead, .page-header h1 small {
+p.lead {
   color: #a68325;
 }
