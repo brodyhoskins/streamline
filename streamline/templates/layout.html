@@ -23,6 +23,16 @@
       </ul>
       <ul class="nav navbar-nav ml-auto">
         {% if user.is_authenticated %}
+          {% if vendor is not none %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-building"></i> {{ vendor.name }}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a href="/vendors" class="dropdown-item"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+              </div>
+            </li>
+          {% endif %}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="far fa-user-circle"></i> {{ request.user.username }}
