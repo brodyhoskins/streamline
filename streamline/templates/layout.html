@@ -54,6 +54,35 @@
   <footer class="pt-4">
     <div class="container-fluid">
       <div class="row">
+        <div class="col-md-2">
+          <h2 class="h5">Our site</h2>
+          <ul class="list-unstyled">
+            <li><a href="/">Home</a></li>
+            <li><a href="/products">Products</a></li>
+          </ul>
+        </div>
+        {% if user.is_authenticated %}
+          <div class="col-md-2">
+            <h2 class="h5">Account</h2>
+            <ul class="list-unstyled">
+              <li><a href="/">Account</a></li>
+              <li><a href="/products">Products</a></li>
+            </ul>
+            {% if not vendor %}
+              <ul class="list-unstyled">
+                <li><a href="/vendors">Sell with us</a></li>
+              </ul>
+            {% endif %}
+          </div>
+        {% endif %}
+        {% if vendor %}
+          <div class="col-md-2">
+            <h2 class="h5">Vendor</h2>
+            <ul class="list-unstyled">
+              <li><a href="/vendors/products">Products</a></li>
+            </ul>
+          </div>
+        {% endif %}
       </div>
       <div class="text-center">
         <p class="h3 brand">Streamline</p>
