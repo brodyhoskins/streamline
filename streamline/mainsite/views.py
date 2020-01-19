@@ -11,7 +11,7 @@ def products_index(request):
 
 def vendor_index(request):
     if request.user.is_authenticated:
-        if vendor:
+        if vendor == True:
             return render(request, 'vendors/index.html')
         else:
             return redirect('/vendors/signup')
@@ -20,7 +20,7 @@ def vendor_index(request):
 
 def vendor_signup(request):
     if request.user.is_authenticated:
-        if vendor:
+        if vendor == True:
             return redirect('/vendors/')
         else:
             return render(request, 'vendors/signup.html')
