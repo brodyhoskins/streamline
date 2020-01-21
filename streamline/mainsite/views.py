@@ -23,6 +23,7 @@ def products_new(request):
                     product = form.save(commit = False)
                     product.title = form.cleaned_data['title']
                     product.desc = form.cleaned_data['desc']
+                    product.price = form.cleaned_data['price']
                     print(request.FILES['primary_image'])
                     product.primary_image = request.FILES['primary_image']
                     product.save()

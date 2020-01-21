@@ -20,6 +20,7 @@ class Product(models.Model):
     vendors = models.ManyToManyField(Vendor)
     title = models.CharField(max_length = 255)
     desc = models.TextField()
+    price = models.DecimalField(max_digits = 6, decimal_places = 2)
     primary_image = models.ImageField(upload_to = 'uploads/')
 
 class PreferredProduct(models.Model):

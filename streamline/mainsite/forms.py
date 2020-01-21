@@ -13,4 +13,5 @@ class ProductForm(forms.ModelForm):
         fields = ('title', 'desc', 'primary_image')
     title = forms.CharField(label = 'Title', max_length = 100)
     desc = forms.CharField(label = 'Description', max_length = 1024)
+    price = forms.CharField(label = 'Price $', max_length = 6)
     primary_image = forms.ImageField()
