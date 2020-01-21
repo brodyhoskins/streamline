@@ -11,7 +11,12 @@
       {% if vendor %}
         <div class="btn-toolbar mb-4">
           <div class="btn-group mr-2">
-            <a href="/products/{{ product.id }}/edit" class="btn btn-sm btn-dark"><i class="fas fa-pencil-alt"></i> Edit</a>
+            <a href="/products/{{ product.id }}/edit" class="btn btn-sm btn-light"><i class="fas fa-pencil-alt"></i> Edit</a>
+            <form action="/products/{{ product.id }}/delete" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="_method" value="delete">
+              <input type="submit" value="Delete" class="btn btn-sm btn-danger">
+            </form>
           </div>
         </div>
       {% endif %}

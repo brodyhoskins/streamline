@@ -44,9 +44,17 @@ def products_edit(request, pk):
             return render(request, 'products/edit.html', {'form': form, 'product': product})
     return render(request, '401.html', status = 401)
 
+def products_delete(request, pk):
+    if request.user.is_authenticated:
+        if not vendor(request)['vendor'] == None:
+            if request.method == 'DELETE' or request.method == 'POST':
+                Product.objects.get(pk = pk).delete()
+                return redirect(f'/products')
+            return render(request, '405.html', status = 405)
+    return render(request, '401.html', status = 401)
+
 def products_show(request, pk):
     product = Product.objects.get(pk = pk)
-    # All this just for product.vendors.map(&:name).join(', ') in Ruby?
     vendor_names = ', '.join(list(product.vendors.values_list('name', flat = True)))
     return render(request, 'products/show.html', {'product': product, 'vendor_names': vendor_names})
 
