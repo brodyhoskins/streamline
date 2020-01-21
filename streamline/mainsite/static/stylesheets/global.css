@@ -66,3 +66,7 @@ p.lead {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+a.product-link, .product-link a.product-link:active, a.product-link:hover, a.product-link:visited {
+  color: black !important;
+}

@@ -22,8 +22,8 @@ def products_new(request):
                 if form.is_valid():
                     product = Product(title = form.cleaned_data['title'], desc = form.cleaned_data['desc'])
                     product.save()
-                    product.vendors.add(vendor)
-                    return redirect(f'/product/{product.pk}')
+                    product.vendors.add(vendor(request)['vendor'])
+                    return redirect(f'/products/{product.pk}')
             form = ProductForm()
             return render(request, 'products/new.html', {'form': form})
     return render(request, '401.html', status = 401)
