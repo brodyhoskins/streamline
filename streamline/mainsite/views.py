@@ -19,7 +19,6 @@ def products_new(request):
         if not vendor(request)['vendor'] == None:
             if request.method == 'POST':
                 form = ProductForm(request.POST, request.FILES)
-                print(form.errors)
                 if form.is_valid():
                     product = form.save(commit = False)
                     product.title = form.cleaned_data['title']
@@ -31,6 +30,18 @@ def products_new(request):
                     return redirect(f'/products/{product.pk}')
             form = ProductForm()
             return render(request, 'products/new.html', {'form': form})
+    return render(request, '401.html', status = 401)
+
+def products_edit(request, pk):
+    if request.user.is_authenticated:
+        if not vendor(request)['vendor'] == None:
+            product = Product.objects.get(pk = pk)
+            form = ProductForm(request.POST or None, instance = product)
+            if request.method == 'POST':
+                if form.is_valid():
+                    form.save()
+                    return redirect(f'/products/{product.pk}')
+            return render(request, 'products/edit.html', {'form': form, 'product': product})
     return render(request, '401.html', status = 401)
 
 def products_show(request, pk):

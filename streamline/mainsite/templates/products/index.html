@@ -9,7 +9,11 @@
         <p class="lead">We think you’ll love them</p>
       </div>
       {% if vendor %}
-        {% include './_menu_vendor.html' %}
+        <div class="btn-toolbar mb-4">
+          <div class="btn-group mr-2">
+            <a href="/products/new" class="btn btn-sm btn-dark"><i class="fas fa-plus"></i> Sell</a>
+          </div>
+        </div>
       {% endif %}
       {% include './_show_many.html' %}
     </div>
