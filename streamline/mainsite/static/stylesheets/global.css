@@ -13,6 +13,10 @@ a, a:link, a:active, a:hover, a:visited {
   text-decoration: none !important;
 }
 
+footer a, footer a:link, footer a:active, footer a:hover, footer a:visited {
+  color: #3f821b !important;
+}
+
 nav * {
   text-transform: lowercase;
 }
@@ -61,7 +65,7 @@ p.lead {
   color: #a68325;
 }
 
-.text-overflow, .product-title {
+.text-no-overflow, .product-title {
   white-space: nowrap; 
   overflow: hidden;
   text-overflow: ellipsis;

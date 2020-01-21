@@ -10,7 +10,7 @@
         <h1>Sell</h1>
         <p class="lead">Reach our customers</p>
       </div>
-      <form method="post" class="form-horizontal col-md-6">
+      <form method="post" enctype="multipart/form-data" class="form-horizontal col-md-6">
         {% csrf_token %}
         {% bootstrap_form_errors form type='non_fields' %}
         {% bootstrap_form form layout='horizontal' %}

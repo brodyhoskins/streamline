@@ -18,9 +18,14 @@ def products_new(request):
     if request.user.is_authenticated:
         if not vendor(request)['vendor'] == None:
             if request.method == 'POST':
-                form = ProductForm(request.POST)
+                form = ProductForm(request.POST, request.FILES)
+                print(form.errors)
                 if form.is_valid():
-                    product = Product(title = form.cleaned_data['title'], desc = form.cleaned_data['desc'])
+                    product = form.save(commit = False)
+                    product.title = form.cleaned_data['title']
+                    product.desc = form.cleaned_data['desc']
+                    print(request.FILES['primary_image'])
+                    product.primary_image = request.FILES['primary_image']
                     product.save()
                     product.vendors.add(vendor(request)['vendor'])
                     return redirect(f'/products/{product.pk}')

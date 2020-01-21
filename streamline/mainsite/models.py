@@ -20,6 +20,7 @@ class Product(models.Model):
     vendors = models.ManyToManyField(Vendor)
     title = models.CharField(max_length = 255)
     desc = models.TextField()
+    primary_image = models.ImageField(upload_to = 'uploads/')
 
 class PreferredProduct(models.Model):
     created_at = models.DateTimeField(auto_now_add = True)
