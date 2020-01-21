@@ -2,15 +2,37 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 
-from mainsite.models import Vendor
+from mainsite.models import Product, Vendor
 from streamline.processors import vendor
-from .forms import VendorForm
+from .forms import ProductForm, VendorForm
 
 def index(request):
-    return render(request, 'index.html')
+    products = Product.objects.all()
+    return render(request, 'index.html', {'products': products})
 
 def products_index(request):
-    return render(request, 'products/index.html')
+    products = Product.objects.all()
+    return render(request, 'products/index.html', {'products': products})
+
+def products_new(request):
+    if request.user.is_authenticated:
+        if not vendor(request)['vendor'] == None:
+            if request.method == 'POST':
+                form = ProductForm(request.POST)
+                if form.is_valid():
+                    product = Product(title = form.cleaned_data['title'], desc = form.cleaned_data['desc'])
+                    product.save()
+                    product.vendors.add(vendor)
+                    return redirect(f'/product/{product.pk}')
+            form = ProductForm()
+            return render(request, 'products/new.html', {'form': form})
+    return render(request, '401.html', status = 401)
+
+def products_show(request, pk):
+    product = Product.objects.get(pk = pk)
+    # All this just for product.vendors.map(&:name).join(', ') in Ruby?
+    vendor_names = ', '.join(list(product.vendors.values_list('name', flat = True)))
+    return render(request, 'products/show.html', {'product': product, 'vendor_names': vendor_names})
 
 def vendor_index(request):
     if request.user.is_authenticated:
@@ -33,10 +55,6 @@ def vendor_signup(request):
                     new_vendor.profile_id = request.user.id
                     new_vendor.save()
                     return redirect('/vendors/#welcome')
-                else:
-                    render(request, 'vendors/signup.html')
-            else:
-                form = VendorForm()
-                return render(request, 'vendors/signup.html', {'form': form})
-    else:
-        return render(request, '401.html', status = 401)
+            form = VendorForm()
+            return render(request, 'vendors/signup.html', {'form': form})
+    return render(request, '401.html', status = 401)

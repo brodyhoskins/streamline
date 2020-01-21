@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block title %}Sell{% endblock title %}
+
+{% load bootstrap4 %}
+
+{% block content %}
+  <main>
+    <div class="container-fluid">
+      <div class="page-header">
+        <h1>Sell</h1>
+        <p class="lead">Reach our customers</p>
+      </div>
+      <form method="post" class="form-horizontal col-md-6">
+        {% csrf_token %}
+        {% bootstrap_form_errors form type='non_fields' %}
+        {% bootstrap_form form layout='horizontal' %}
+        {% buttons %}
+          <button type="submit" class="btn btn-primary">Sell</button>
+        {% endbuttons %}
+      </form>
+    </div>
+  </main>
+{% endblock content %}

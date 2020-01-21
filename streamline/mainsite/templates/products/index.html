@@ -8,7 +8,10 @@
         <h1>Products</h1>
         <p class="lead">We think you’ll love them</p>
       </div>
-      {% include '_error_no_content.html' %}
+      {% if vendor %}
+        {% include './_menu_vendor.html' %}
+      {% endif %}
+      {% include './_show_many.html' %}
     </div>
   </main>
 {% endblock content %}

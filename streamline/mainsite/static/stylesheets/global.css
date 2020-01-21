@@ -60,3 +60,9 @@ nav * {
 p.lead {
   color: #a68325;
 }
+
+.text-overflow, .product-title {
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
